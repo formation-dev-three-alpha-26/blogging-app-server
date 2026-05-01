@@ -1,22 +1,16 @@
-const postrouter = require("express").Router()
+const postrouter = require("express").Router();
 
-const controller = require("../controller/postController")
+const controller = require("../controller/postController");
+postrouter.route("/").get(  controller.getAll);
 
+postrouter.route("/:userId").get(controller.getpostsparUser);
 
+postrouter.route("/").post(controller.createPost);
 
-postrouter.route("/").get(controller.getAll)
+postrouter.route("/:id").put(controller.updatePost);
 
-postrouter.route("/:userId").get(controller.getpostsparUser)
+postrouter.route("/:id").delete(controller.deletePost);
 
+postrouter.route("/:id").get(controller.onePost);
 
-
-postrouter.route("/").post(controller.createPost)
-
-postrouter.route("/:id").put(controller.updatePost)
-
-postrouter.route("/:id").delete(controller.deletePost)
-
-postrouter.route("/:id").get(controller.onePost)
-
-
-module.exports = postrouter
+module.exports = postrouter;

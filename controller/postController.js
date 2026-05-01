@@ -3,7 +3,7 @@ const post = require("../model/postModel");
 const controller = {
   getAll: async (req, res) => {
     try {
-      const data = await post.find().populate("author", "-password");
+      const data = await post.find().populate("author", "-password")
 
       res.status(200).json(data);
     } catch (error) {
@@ -75,3 +75,5 @@ const controller = {
 };
 
 module.exports = controller;
+
+

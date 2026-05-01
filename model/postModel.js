@@ -17,3 +17,6 @@ const post = mongoose.model("post" , postschema)
 
 
 module.exports = post
+
+
+
